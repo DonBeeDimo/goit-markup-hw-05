@@ -82,13 +82,29 @@ li {
   height: 100%;
   background: rgba(33, 150, 243, 0.9);
 
-  transform: translateY(100%);
+  transform: translateY(-100%);
   transition: transform 250ms linear;
 }
 
 .item .link-cart:hover .portfolio-overlay,
 .item .link-cart:focus .portfolio-overlay {
   transform: translateY(0);
+}
+
+.style-hover {
+  padding-left: 24px;
+  padding-top: 63px;
+
+  color: var(--background-color);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  
+  
 }
 
 .item .link-cart:hover,
@@ -136,6 +152,3 @@ li {
   border-left: 1px solid #eeeeee;
 }
 
-.cart-list .style-hover {
-  color: var(--primary-text-color);
-}
