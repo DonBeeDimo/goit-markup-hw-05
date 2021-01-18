@@ -38,12 +38,16 @@ li {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
+
+  transition: background-color 250ms var(--timing-function);
+  transition: color 250ms var(--timing-function);
 }
 
 .filter-nav .nav:hover,
 .filter-nav .nav:focus {
   background-color: var(--accent-color);
   color: var(--background-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* Карточки */
@@ -58,7 +62,7 @@ li {
   margin-right: 30px;
   margin-bottom: 30px;
 
-  background-color: #ccc;
+  /* background-color: #ccc; */
 }
 
 .cart-list > .item:nth-child(3n) {
@@ -83,7 +87,7 @@ li {
   background: rgba(33, 150, 243, 0.9);
 
   transform: translateY(-100%);
-  transition: transform 250ms linear;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item .link-cart:hover .portfolio-overlay,
@@ -103,8 +107,6 @@ li {
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
-  
-  
 }
 
 .item .link-cart:hover,
@@ -151,4 +153,3 @@ li {
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
 }
-

@@ -62,7 +62,7 @@
                 <div class="heading-container">
                     <h1 class="hero-title">ЭФФЕКТИВНЫЕ РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА</h1>
                 </div>
-               <button class="service">
+               <button class="service" data-open-modal>
                     Заказать услугу
                 </button>
             </div>
@@ -119,14 +119,23 @@
         <div class="container">
             <h2 class="section-title">Чем мы занимаемся</h2>
             <ul class="work">
-                <li class="item">
-                    <img src="./images/box 1 min.jpg" alt="делает вёрстку на компьютере" width="370"> 
+                <li class="photo">
+                    <img src="./images/box 1 min.jpg" alt="делает вёрстку на компьютере">
+                    <div class="profile-title">
+                        <p class="example">Десктопное приложение</p>
+                    </div> 
                 </li>
-                <li class="item">
-                    <img src="./images/box 2 min.jpg" alt="синхронизирует смартфон с компьютером" width="370">
+                <li class="photo">
+                    <img src="./images/box 2 min.jpg" alt="синхронизирует смартфон с компьютером">
+                    <div class="profile-title">
+                        <p class="example">Мобильные приложения</p>
+                    </div> 
                 </li>
-                <li class="item">
-                    <img src="./images/box 3 min.jpg" alt="рисует на планшете" width="370">
+                <li class="photo">
+                    <img src="./images/box 3 min.jpg" alt="рисует на планшете">
+                    <div class="profile-title">
+                        <p class="example">Дизайнерские решения</p>
+                    </div> 
                 </li>
             </ul>
         </div>
@@ -299,8 +308,11 @@
         </div>
 
 </main>
+
+ 
+
     <!--Подвал-->
-  <footer class="footer">
+ <footer class="footer">
 
     <div class="container">
         <div class="container-footer">
@@ -349,12 +361,39 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-        
     </div>
-        
-    
-  </footer>    
+ </footer>
+
+ <div class="backdrop is-hidden" data-backdrop>
+    <div class="modal">
+        <button class="modal-btn" data-close-modal>
+            <svg class="close-icon" width="11" height="11">
+                <use href="./images/symbol-defs.svg#icon-vectormin"></use>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<script>
+    const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]"), 
+    };
+    refs.openModalBtn.addEventListener("click", toggleModal);
+    refs.closeModalBtn.addEventListener("click", toggleModal);
+
+    refs.backdrop.addEventListener("click", logBackdropClick);
+
+    function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+    }
+
+    function logBackdropClick() {
+        console.log("Это клик в бекдроп");
+    }
+</script>
+
 </body>
 </html>

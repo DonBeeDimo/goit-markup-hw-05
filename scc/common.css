@@ -12,6 +12,7 @@ html {
   --title-text-color: #757575;
   --accent-color: #2196f3;
   --background-color: #ffffff;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page {
@@ -120,11 +121,38 @@ p {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .site-nav a:hover,
 .site-nav a:focus {
   color: var(--accent-color);
+}
+
+.link {
+  position: relative;
+}
+
+.link::after {
+  content: '';
+
+  position: absolute;
+  bottom: 0;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+
+  background-color: var(--accent-color);
+  
+  opacity: 0;
+  transition: opacity 250ms var(--timing-function);
+}
+
+.link.current::after {
+  opacity: 1;
 }
 
 .site-nav .link.current {
@@ -170,6 +198,8 @@ p {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .web-link .link-mail:hover,
@@ -184,6 +214,8 @@ p {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .web-link .link-tel:hover,
@@ -253,6 +285,8 @@ p {
   font-weight: normal;
   font-size: 14px;
   line-height: 1.71;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .footer-link .footer-mail:hover,
@@ -267,6 +301,8 @@ p {
   font-weight: normal;
   font-size: 14px;
   line-height: 1.71;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .footer-link .footer-tel:hover,
@@ -302,6 +338,8 @@ p {
   border-radius: 50%;
 
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition: background-color 250ms var(--timing-function);
 }
 
 .social-link:hover,
@@ -314,4 +352,49 @@ p {
   width: 20px;
   height: 20px;
   fill: var(--background-color);
+}
+
+/* модельное окно */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  background-color: var(--background-color); 
+}
+
+.modal-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 8px 8px;
+
+  background: var(--background-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
